@@ -1,0 +1,37 @@
+<div class="_login_container">
+    <mat-card class="_login_card">
+        <mat-card-header class="_login_card_header">
+            <mat-card-title>Sign In</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="_login_card_content">
+            <form [formGroup]="_loginForm" class="_login_card_content_form" (ngSubmit)="loginSubmission()">
+                <mat-form-field>
+                    <mat-label>Username</mat-label>
+                    <input type="text" matInput formControlName="username" name="username">
+                    @if(_loginForm.controls['username'].touched && _loginForm.controls['username'].errors) {
+                        <mat-error>
+                            <ng-container>
+                                You must provide <strong>Username</strong>
+                              </ng-container>
+                        </mat-error>
+                    }
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput formControlName="password" name="password">
+                    @if(_loginForm.controls['password'].touched && _loginForm.controls['password'].errors) {
+                        <mat-error>
+                            <ng-container>
+                                You must provide <strong>Password</strong>
+                              </ng-container>
+                        </mat-error>
+                    }
+                </mat-form-field>
+                <a>Forget <span>Username / Password?</span></a>
+            <mat-card-actions>
+                <button mat-flat-button type="submit" [disabled]="_loginForm.invalid">Sign In</button>
+            </mat-card-actions>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

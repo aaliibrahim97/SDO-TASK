@@ -1,0 +1,93 @@
+._login_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  ._login_card {
+    max-width: 40vw;
+    margin-bottom: 8px;
+    border-radius: 1rem;
+    width: 30vw;
+
+    ._login_card_header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #58b847;
+      color: #fff;
+      height: 6rem;
+      margin-bottom: 2rem;
+      border-radius: 1rem 1rem 0 0;
+
+      mat-card-title {
+        font-weight: bold;
+        font-size: 1.7vw;
+      }
+    }
+    ::ng-deep .mat-mdc-card-content {
+      padding: 0 48px !important;
+    }
+    ._login_card_content form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      ::ng-deep .mdc-text-field--filled {
+        border-top-left-radius: 35px;
+        border-top-right-radius: 35px;
+        border-bottom-right-radius: 35px;
+        border-bottom-left-radius: 35px;
+      }
+
+      ::ng-deep .mdc-line-ripple {
+        display: none;
+      }
+
+      ::ng-deep .mat-mdc-text-field-wrapper {
+        height: 3rem !important;
+      }
+
+      ::ng-deep .mat-mdc-form-field-infix {
+        bottom: 5px;
+        padding-left: 1rem;
+      }
+
+      ::ng-deep .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
+        font-weight: 800;
+        font-size: 1vw;
+      }
+
+      mat-card-actions {
+        button {
+          width: 100%;
+          border-radius: 35px;
+          background-color: #58b847;
+          color: #fff;
+          font-size: 1vw;
+          margin: 1rem 0 8rem;
+
+          &:disabled {
+            background-color: #58b847d3;
+            color: #ffffffc5;
+          }
+        }
+      }
+
+      mat-error {
+        margin-bottom: 0.5rem;
+      }
+
+      a {
+        text-align: right;
+        cursor: pointer;
+        color: rgb(177, 177, 177);
+        margin-top: 0.4rem;
+
+        span {
+          color: #58b847;
+        }
+      }
+    }
+  }
+}
