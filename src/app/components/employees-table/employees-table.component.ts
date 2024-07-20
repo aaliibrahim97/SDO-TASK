@@ -1,37 +1,28 @@
-import { Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { MatTableDataSource, MatTableModule } from "@angular/material/table";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { SelectionModel } from "@angular/cdk/collections";
 import { ButtonModule } from "primeng/button";
-import { Store, select } from "@ngrx/store";
-// import * as userActions from "../../state/user.actions"
-// import * as fromUser from "../../state/user.reducer"
+import { Store } from "@ngrx/store";
 import { User } from "../../interfaces/user";
-import { Observable } from "rxjs";
 import { loadEmployees } from "../../_store/employee/employee.actions";
 import { getEmployeeList } from "../../_store/employee/employee.selector";
 import { MatDialog } from "@angular/material/dialog";
 import { AddEmployeeComponent } from "../add-employee/add-employee.component";
 import { DeleteEmployeeComponent } from "../delete-employee/delete-employee.component";
 import { FormsModule } from "@angular/forms";
-
-export interface PeriodicElement {
-  selected: boolean;
-  email: string;
-  name: string;
-  address: string;
-  phone: string;
-}
+import { MatPaginator, MatPaginatorModule } from "@angular/material/paginator";
+import { BubblePaginationDirective } from "../../directives/bubble-pagination.directive";
 
 @Component({
-  selector: "app-users-table",
+  selector: 'app-employees-table',
   standalone: true,
-  imports: [MatTableModule, MatCheckboxModule, ButtonModule, FormsModule],
-  templateUrl: "./users-table.component.html",
-  styleUrl: "./users-table.component.scss",
+  imports: [MatTableModule, MatCheckboxModule, ButtonModule, FormsModule, MatPaginatorModule, BubblePaginationDirective],
+  templateUrl: './employees-table.component.html',
+  styleUrl: './employees-table.component.scss'
 })
-export class UsersTableComponent implements OnInit {
-  dataSource = new MatTableDataSource<User>([]);
+export class EmployeesTableComponent implements OnInit {
+dataSource = new MatTableDataSource<User>([]);
   displayedColumns: string[] = [
     "select",
     "email",
@@ -45,6 +36,7 @@ export class UsersTableComponent implements OnInit {
   selectedEmployeesIds: string[] = [];
   allowDeleteAll: boolean = false;
   selection = new SelectionModel<User>(true, []);
+  @ViewChild('paginator') paginator!: MatPaginator;
 
   constructor(private store: Store, private dialog: MatDialog) {}
 
@@ -69,6 +61,10 @@ export class UsersTableComponent implements OnInit {
     this.selection.selected.forEach((s) => 
       this.selectedEmployeesIds.push(s.id)
     );
+    this.checkDeleteAll();
+  }
+
+  checkDeleteAll(): void {
     if (this.selectedEmployeesIds.length >= 2) this.allowDeleteAll = true;
     else this.allowDeleteAll = false;
   }
@@ -79,6 +75,7 @@ export class UsersTableComponent implements OnInit {
       data = data.filter((x, i) => i !== 0);
       this.employees = [...data];
       this.dataSource = new MatTableDataSource<User>(this.employees);
+      this.dataSource.paginator = this.paginator;
     });
   }
 
@@ -105,7 +102,12 @@ export class UsersTableComponent implements OnInit {
       },
     });
     dialogRef.afterClosed().subscribe((r) => {
-      if (r) this.dispatchUsers();
+      if (r) { 
+        this.dispatchUsers(); 
+        this.selection.clear()
+        this.allowDeleteAll = false;
+        this.dataSource.paginator = this.paginator;
+      }
     });
   }
 }

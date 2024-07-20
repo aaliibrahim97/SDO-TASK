@@ -1,7 +1,16 @@
 ._home_container {
-    padding-top: 5vw;
     display: flex;
-    justify-content: center;
-    align-items: start;
     height: 100vh;
+    flex-direction: column;
+
+    ._logout_btn {
+        display: flex;
+        justify-content: end;
+        padding: 2vw 0 2vw 0;
+
+        ::ng-deep .p-button {
+            height: 40px !important;
+            border-radius: 4px !important;
+        }
+    }
 }

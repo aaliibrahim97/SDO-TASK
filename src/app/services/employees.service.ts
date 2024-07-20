@@ -7,13 +7,13 @@ import { environment } from "../../environments/environment";
 @Injectable({
   providedIn: "root",
 })
-export class UserCrudService {
+export class EmployeesService {
   constructor(private http: HttpClient) {}
 
   /**
-   * @description get users information list
+   * @description get users employees list
    */
-  getUsers(): Observable<User[]> {
+  getEmployeesList(): Observable<User[]> {
     return this.http.get<User[]>(environment.apiBaseUrl);
   }
 

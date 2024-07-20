@@ -1,4 +1,4 @@
-import { UserCrudService } from "./../../services/user-crud.service";
+import { EmployeesService } from "../../services/employees.service";
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import {
@@ -20,7 +20,7 @@ import { MessageService } from "primeng/api";
 export class employeeEffects {
   constructor(
     private $actions: Actions,
-    private userCrudService: UserCrudService,
+    private employeesService: EmployeesService,
     private messageService: MessageService
   ) {}
 
@@ -28,7 +28,7 @@ export class employeeEffects {
     this.$actions.pipe(
       ofType(loadEmployees),
       exhaustMap((action) => {
-        return this.userCrudService.getUsers().pipe(
+        return this.employeesService.getEmployeesList().pipe(
           map((data) => {
             return loadEmployeesSuccess({ list: data });
           }),
@@ -42,7 +42,7 @@ export class employeeEffects {
     this.$actions.pipe(
       ofType(addEmployees),
       switchMap((action) => {
-        return this.userCrudService.addEmployee(action.inputdata).pipe(
+        return this.employeesService.addEmployee(action.inputdata).pipe(
           switchMap(() => {
             return of(
               addEmployeesSuccess(),
@@ -64,7 +64,7 @@ export class employeeEffects {
     this.$actions.pipe(
       ofType(updateEmployees),
       switchMap((action) => {
-        return this.userCrudService.updateEmployee(action.inputdata).pipe(
+        return this.employeesService.updateEmployee(action.inputdata).pipe(
           switchMap(() => {
             return of(
               updateEmployeesSuccess(),
@@ -91,7 +91,7 @@ export class employeeEffects {
     this.$actions.pipe(
       ofType(deleteEmployees),
       switchMap((action) => {
-        return this.userCrudService.deleteEmployee(action.id).pipe(
+        return this.employeesService.deleteEmployee(action.id).pipe(
           switchMap(() => {
             return of(
               deleteEmployeesSuccess(),

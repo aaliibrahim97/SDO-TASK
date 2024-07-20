@@ -11,20 +11,11 @@
       "phone": ""
     },
     {
-      "id": "9416ca58-e5d6-40cb-b82a-1a9cf4f2f262",
+      "id": "08109180-4a00-4ab9-affb-220ca9878e70",
       "name": "ahmed",
       "email": "aaliibrahima97@gmail.com",
       "phone": "0561278040",
-      "address": "abu dhabi",
-      "selected": false
-    },
-    {
-      "id": "aed7e4b3-7b0b-409e-aa71-9b89aba6d7cc",
-      "name": "ahmed",
-      "email": "aaliibrahima97@gmail.com",
-      "phone": "0561278040",
-      "address": "abu dhabi",
-      "selected": false
+      "address": "Abu Dhabi"
     }
   ]
 }

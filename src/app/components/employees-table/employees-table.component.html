@@ -1,9 +1,9 @@
-<div class="_users_table_container">
-    <div class="_users_table_header">
-        <h1 class="_users_table_header_title">
+<div class="_employees_table_container">
+    <div class="_employees_table_header">
+        <h1 class="_employees_table_header_title">
             Manage <b>Employees</b>
         </h1>
-        <div class="_users_table_header_actions">
+        <div class="_employees_table_header_actions">
             <p-button label="Delete" [raised]="true" severity="danger" icon="pi pi-minus" iconPos="left"
                 [disabled]="!allowDeleteAll" (click)="deleteEmployee({},true)" />
             <p-button label="Add New Employee" [raised]="true" severity="success" icon="pi pi-plus" iconPos="left"
@@ -62,7 +62,16 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        <tr mat-row *matRowDef="let row; columns: displayedColumns">
         </tr>
     </table>
+    <div class="_employee_table_footer_title">
+            <mat-paginator
+            #paginator
+            pageSize="5"
+            showFirstLastButtons
+            appBubblePagination
+            [appCustomLength]="dataSource.data.length"
+            ></mat-paginator>
+    </div>
 </div>

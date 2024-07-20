@@ -29,7 +29,6 @@ export class AddEmployeeComponent implements OnInit {
       Validators.pattern('^[0][0-9]{9}$')
     ]),
     address: new FormControl("", [Validators.required]),
-    selected: new FormControl(false)
   });
 
   constructor(

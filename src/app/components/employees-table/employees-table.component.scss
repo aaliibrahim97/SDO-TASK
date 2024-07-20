@@ -1,4 +1,4 @@
-._users_table_container {
+._employees_table_container {
   width: 90vw;
 
   table {
@@ -13,7 +13,7 @@
       color: #ef4444;
     }
   }
-  ._users_table_header {
+  ._employees_table_header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,12 +22,12 @@
     padding: 0 2rem;
     border-radius: 5px 5px 0px 0px;
 
-    ._users_table_header_title {
+    ._employees_table_header_title {
       color: white;
       margin: 0;
       font-weight: 100;
     }
-    ._users_table_header_actions {
+    ._employees_table_header_actions {
       display: flex;
       flex-direction: row;
       justify-content: end;
@@ -50,5 +50,15 @@
         color: #ef4444;
       }
     }
+  }
+
+  ._employee_table_footer_title {
+    background: white;
+    padding: 2rem 0rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    border-radius: 0 0 5px 5px;
+    position: relative;
   }
 }
