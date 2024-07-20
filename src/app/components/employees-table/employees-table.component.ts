@@ -1,4 +1,9 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { AddEditEmployeeComponent } from "./../add-edit-employee/add-edit-employee.component";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+} from "@angular/core";
 import { MatTableDataSource, MatTableModule } from "@angular/material/table";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { SelectionModel } from "@angular/cdk/collections";
@@ -8,21 +13,27 @@ import { User } from "../../interfaces/user";
 import { loadEmployees } from "../../_store/employee/employee.actions";
 import { getEmployeeList } from "../../_store/employee/employee.selector";
 import { MatDialog } from "@angular/material/dialog";
-import { AddEmployeeComponent } from "../add-employee/add-employee.component";
 import { DeleteEmployeeComponent } from "../delete-employee/delete-employee.component";
 import { FormsModule } from "@angular/forms";
 import { MatPaginator, MatPaginatorModule } from "@angular/material/paginator";
 import { BubblePaginationDirective } from "../../directives/bubble-pagination.directive";
 
 @Component({
-  selector: 'app-employees-table',
+  selector: "app-employees-table",
   standalone: true,
-  imports: [MatTableModule, MatCheckboxModule, ButtonModule, FormsModule, MatPaginatorModule, BubblePaginationDirective],
-  templateUrl: './employees-table.component.html',
-  styleUrl: './employees-table.component.scss'
+  imports: [
+    MatTableModule,
+    MatCheckboxModule,
+    ButtonModule,
+    FormsModule,
+    MatPaginatorModule,
+    BubblePaginationDirective,
+  ],
+  templateUrl: "./employees-table.component.html",
+  styleUrl: "./employees-table.component.scss",
 })
 export class EmployeesTableComponent implements OnInit {
-dataSource = new MatTableDataSource<User>([]);
+  dataSource = new MatTableDataSource<User>([]);
   displayedColumns: string[] = [
     "select",
     "email",
@@ -36,7 +47,7 @@ dataSource = new MatTableDataSource<User>([]);
   selectedEmployeesIds: string[] = [];
   allowDeleteAll: boolean = false;
   selection = new SelectionModel<User>(true, []);
-  @ViewChild('paginator') paginator!: MatPaginator;
+  @ViewChild("paginator") paginator!: MatPaginator;
 
   constructor(private store: Store, private dialog: MatDialog) {}
 
@@ -58,7 +69,7 @@ dataSource = new MatTableDataSource<User>([]);
 
   logSelection() {
     this.selectedEmployeesIds = [];
-    this.selection.selected.forEach((s) => 
+    this.selection.selected.forEach((s) =>
       this.selectedEmployeesIds.push(s.id)
     );
     this.checkDeleteAll();
@@ -80,7 +91,7 @@ dataSource = new MatTableDataSource<User>([]);
   }
 
   addNewEmployees(action: string, employee = {}): void {
-    const dialogRef = this.dialog.open(AddEmployeeComponent, {
+    const dialogRef = this.dialog.open(AddEditEmployeeComponent, {
       width: "30vw",
       data: {
         action,
@@ -102,9 +113,9 @@ dataSource = new MatTableDataSource<User>([]);
       },
     });
     dialogRef.afterClosed().subscribe((r) => {
-      if (r) { 
-        this.dispatchUsers(); 
-        this.selection.clear()
+      if (r) {
+        this.dispatchUsers();
+        this.selection.clear();
         this.allowDeleteAll = false;
         this.dataSource.paginator = this.paginator;
       }

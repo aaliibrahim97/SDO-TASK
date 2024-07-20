@@ -1,0 +1,69 @@
+._add_edit_employee_container {
+    ._add_edit_employee_header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: 1px solid #b7b7b7;
+      padding: 1.5rem 20px 1rem 20px;
+  
+      p {
+        color: #707070;
+        font-size: 1.2rem;
+      }
+      i {
+        cursor: pointer;
+      }
+    }
+  
+    ._add_edit_employee_form {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 0 0 0;
+  
+      ._add_edit_employee_form_input {
+        display: flex;
+        flex-direction: column;
+        width: 20rem;
+        margin-bottom: 2rem;
+  
+        label {
+          margin-bottom: 5px;
+        }
+  
+        mat-error {
+          color: #ef0000;
+        }
+  
+        textarea {
+          border: 1px solid #d1d5db;
+          border-radius: 5px;
+          padding: 8px 0 0 8px;
+        }
+  
+        ::placeholder {
+          color: rgb(184, 184, 184);
+          opacity: 1; /* Firefox */
+        }
+      }
+  
+      ._add_edit_employee_actions {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        background-color: #e4e8e9;
+        height: 5rem;
+        padding: 0 1rem;
+  
+        p-button {
+          margin-left: 1rem;
+        }
+        ::ng-deep .p-ripple {
+          width: 7rem;
+        }
+      }
+    }
+  }
+  

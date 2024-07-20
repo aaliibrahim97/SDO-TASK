@@ -15,10 +15,7 @@ export class DeleteEmployeeComponent {
 
   constructor( @Inject (MAT_DIALOG_DATA) public data:any,
   private MatDialog: MatDialogRef<DeleteEmployeeComponent>,
-  private store: Store) 
-  {
-    console.log(data)
-  }
+  private store: Store)  {}
 
   close(status:boolean = false) {
     this.MatDialog.close(status);
