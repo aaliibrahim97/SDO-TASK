@@ -1,0 +1,54 @@
+._users_table_container {
+  width: 90vw;
+
+  table {
+    .pi {
+      cursor: pointer;
+    }
+    .pi-pencil:before {
+      color: #d7a900;
+    }
+    .pi-trash:before {
+      margin-left: 15px;
+      color: #ef4444;
+    }
+  }
+  ._users_table_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #3a516c;
+    height: 5rem;
+    padding: 0 2rem;
+    border-radius: 5px 5px 0px 0px;
+
+    ._users_table_header_title {
+      color: white;
+      margin: 0;
+      font-weight: 100;
+    }
+    ._users_table_header_actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+      gap: 20px;
+    }
+
+    ::ng-deep .p-button {
+      height: 40px !important;
+      border-radius: 4px !important;
+
+      .pi {
+        background-color: white;
+        border-radius: 100%;
+        padding: 2px;
+      }
+      .pi-plus:before {
+        color: #22c55d;
+      }
+      .pi-minus:before {
+        color: #ef4444;
+      }
+    }
+  }
+}

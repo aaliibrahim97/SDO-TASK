@@ -1,0 +1,68 @@
+<div class="_users_table_container">
+    <div class="_users_table_header">
+        <h1 class="_users_table_header_title">
+            Manage <b>Employees</b>
+        </h1>
+        <div class="_users_table_header_actions">
+            <p-button label="Delete" [raised]="true" severity="danger" icon="pi pi-minus" iconPos="left"
+                [disabled]="!allowDeleteAll" (click)="deleteEmployee({},true)" />
+            <p-button label="Add New Employee" [raised]="true" severity="success" icon="pi pi-plus" iconPos="left"
+                (click)="addNewEmployees('add')" />
+        </div>
+    </div>
+    <table mat-table [dataSource]="dataSource">
+        <!-- Select Column -->
+        <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle() : null; logSelection()"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()">
+                </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation(); logSelection()"
+                    (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+                </mat-checkbox>
+
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Address Column -->
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> Address </th>
+            <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+        </ng-container>
+
+        <!-- Phone Column -->
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> Phone </th>
+            <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+        </ng-container>
+
+        <!-- actions Column -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <div class="d-flex justify-content-start align-items-center">
+                    <i class="pi pi-pencil" (click)="addNewEmployees('edit', element)"></i>
+                    <i class="pi pi-trash" (click)="deleteEmployee(element)"></i>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+    </table>
+</div>

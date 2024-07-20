@@ -1,0 +1,43 @@
+._delete_employee_container {
+  ._delete_employee_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #b7b7b7;
+    padding: 1.5rem 20px 1rem 20px;
+
+    p {
+      color: #707070;
+      font-size: 1.2rem;
+    }
+    i {
+      cursor: pointer;
+    }
+  }
+
+  ._delete_employee_content {
+    margin: 2rem 0rem;
+    p {
+      text-align: center;
+      padding: 1rem;
+      line-height: 25px;
+    }
+  }
+
+  ._delete_employee_actions {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: #e4e8e9;
+    height: 5rem;
+    padding: 0 1rem;
+
+    p-button {
+      margin-left: 1rem;
+    }
+    ::ng-deep .p-ripple {
+      width: 7rem;
+    }
+  }
+}

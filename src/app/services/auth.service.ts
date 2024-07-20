@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 interface UserLogin {
   username:string;
@@ -11,18 +12,15 @@ interface UserLogin {
   providedIn: 'root'
 })
 export class AuthService {
-
-  apiBaseUrl = 'http://localhost:3000/users'
-
   constructor(private http:HttpClient) { }
 
   /**
    * @description login user
-   * @param {string} user  - user (username && password)
+   * @param {string} user  - user (username)
    */
 
   loginSubmission(username: string):Observable <UserLogin[]> {
-    return this.http.get<UserLogin[]>(`${this.apiBaseUrl}?username=${username}`);
+    return this.http.get<UserLogin[]>(`${environment.apiBaseUrl}?username=${username}`);
   }
 
 }

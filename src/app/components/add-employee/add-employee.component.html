@@ -1,0 +1,58 @@
+<div class="_add_employee_container">
+    <div class="_add_employee_header">
+        <p> {{data.action == 'add' ? 'Add Employee' : 'Edit ' + data.employee.name }}</p>
+
+        <i class="pi pi-times" (click)="close()"></i>
+    </div>
+    <form [formGroup]="_employeeForm" class="_add_employee_form" (ngSubmit)="newEmployeeSubmission()">
+        <div class="_add_employee_form_input">
+            <label for="name">Name</label>
+            <input pInputText type="text" id="name" formControlName="name" name="name" placeholder="Ex. John Mathu"/>
+            @if(_employeeForm.controls['name'].touched && _employeeForm.controls['name'].errors) {
+            <mat-error>
+                <ng-container>
+                    You must provide <strong>name</strong>
+                </ng-container>
+            </mat-error>
+            }
+        </div>
+        <div class="_add_employee_form_input">
+            <label for="email">Email</label>
+            <input pInputText type="email" id="username" id="email" formControlName="email" name="email" placeholder="Ex. example.@email.com"/>
+            @if(_employeeForm.controls['email'].touched && _employeeForm.controls['email'].errors) {
+            <mat-error>
+                <ng-container>
+                    You must provide <strong>email</strong>
+                </ng-container>
+            </mat-error>
+            }
+        </div>
+        <div class="_add_employee_form_input">
+            <label for="address">Address</label>
+            <textarea  pInputTextarea pInputTextarea type="text" id="address" formControlName="address"
+                name="address" placeholder="Ex. Abu Dhabi"> </textarea>
+            @if(_employeeForm.controls['address'].touched && _employeeForm.controls['address'].errors) {
+            <mat-error>
+                <ng-container>
+                    You must provide <strong>address</strong>
+                </ng-container>
+            </mat-error>
+            }
+        </div>
+        <div class="_add_employee_form_input">
+            <label for="phone">Phone</label>
+            <input pInputText type="text" id="phone" formControlName="phone" name="phone" placeholder="Ex. 056xxxxxxx"/>
+            @if(_employeeForm.controls['phone'].touched && _employeeForm.controls['phone'].errors) {
+            <mat-error>
+                <ng-container>
+                    You must provide <strong>a valid phone number</strong>
+                </ng-container>
+            </mat-error>
+            }
+        </div>
+        <div class="_add_employee_actions">
+            <p-button label="Cancel" [text]="true" severity="secondary" (click)="close()" />
+            <p-button label="Add" [raised]="true" severity="success" type="submit" [disabled]="_employeeForm.invalid" />
+        </div>
+    </form>
+</div>

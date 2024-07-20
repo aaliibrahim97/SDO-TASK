@@ -1,9 +1,30 @@
 {
-    "users":[
-        {   "id":1,
-            "username":"super_admin",
-            "full_name":"superadmin",
-            "password":"d*wje%n2{tM59A?JUjdju!r"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "username": "super_admin",
+      "full_name": "superadmin",
+      "password": "d*wje%n2{tM59A?JUjdju!r",
+      "name": "",
+      "email": "",
+      "address": "",
+      "phone": ""
+    },
+    {
+      "id": "9416ca58-e5d6-40cb-b82a-1a9cf4f2f262",
+      "name": "ahmed",
+      "email": "aaliibrahima97@gmail.com",
+      "phone": "0561278040",
+      "address": "abu dhabi",
+      "selected": false
+    },
+    {
+      "id": "aed7e4b3-7b0b-409e-aa71-9b89aba6d7cc",
+      "name": "ahmed",
+      "email": "aaliibrahima97@gmail.com",
+      "phone": "0561278040",
+      "address": "abu dhabi",
+      "selected": false
+    }
+  ]
 }

@@ -1,0 +1,18 @@
+<div class="_delete_employee_container">
+    <div class="_delete_employee_header">
+        <p>Delete  Employee</p>
+        <i class="pi pi-times" (click)="close()"></i>
+    </div>
+    <div class="_delete_employee_content">
+        @if(data.deleteAll) {
+            <p>Are you sure you want to delete the selected employees?</p>
+        }
+        @else {
+            <p>Are you sure you want to delete <b>{{data.employee.name}}</b>?</p>
+        }
+    </div>
+    <div class="_delete_employee_actions">
+        <p-button label="Cancel" [text]="true" severity="secondary" (click)="close()" />
+        <p-button label="confirm" [raised]="true" severity="danger" (click)="deleteEmployee()"/>
+    </div>
+</div>
