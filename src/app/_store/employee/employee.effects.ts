@@ -27,7 +27,7 @@ export class employeeEffects {
   _loadEmployee = createEffect(() =>
     this.$actions.pipe(
       ofType(loadEmployees),
-      exhaustMap((action) => {
+      exhaustMap((_action) => {
         return this.employeesService.getEmployeesList().pipe(
           map((data) => {
             return loadEmployeesSuccess({ list: data });
