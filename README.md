@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
 
+## Credentials for Logging
+
+Open `db.json` to find the Credentials username/password at the first object as super admin.
+
 ## Run Json Local Server
 
 Run `json-server --watch db.json` for start watching the data from the local server.
