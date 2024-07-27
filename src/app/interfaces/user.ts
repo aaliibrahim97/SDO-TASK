@@ -1,5 +1,4 @@
 export interface User {
-    selected: boolean;
     id:string;
     email:string;
     name:string;

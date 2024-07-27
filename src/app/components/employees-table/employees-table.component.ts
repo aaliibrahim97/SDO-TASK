@@ -1,9 +1,4 @@
-import { AddEditEmployeeComponent } from "./../add-edit-employee/add-edit-employee.component";
-import {
-  Component,
-  OnInit,
-  ViewChild,
-} from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { MatTableDataSource, MatTableModule } from "@angular/material/table";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { SelectionModel } from "@angular/cdk/collections";
@@ -17,6 +12,10 @@ import { DeleteEmployeeComponent } from "../delete-employee/delete-employee.comp
 import { FormsModule } from "@angular/forms";
 import { MatPaginator, MatPaginatorModule } from "@angular/material/paginator";
 import { BubblePaginationDirective } from "../../directives/bubble-pagination.directive";
+import { AddEditEmployeeCanvasComponent } from "../add-edit-employee-canvas/add-edit-employee-canvas.component";
+import { CanvasService } from "../../services/canvas.service";
+import { ICanvas } from "../../interfaces/canvas";
+import { Subject, takeUntil } from "rxjs";
 
 @Component({
   selector: "app-employees-table",
@@ -28,6 +27,7 @@ import { BubblePaginationDirective } from "../../directives/bubble-pagination.di
     FormsModule,
     MatPaginatorModule,
     BubblePaginationDirective,
+    AddEditEmployeeCanvasComponent,
   ],
   templateUrl: "./employees-table.component.html",
   styleUrl: "./employees-table.component.scss",
@@ -48,11 +48,20 @@ export class EmployeesTableComponent implements OnInit {
   allowDeleteAll: boolean = false;
   selection = new SelectionModel<User>(true, []);
   @ViewChild("paginator") paginator!: MatPaginator;
+  private $destroy:Subject<any> = new Subject<boolean>();
 
-  constructor(private store: Store, private dialog: MatDialog) {}
+  constructor(private store: Store, private dialog: MatDialog, private canvasService:CanvasService) {}
 
   ngOnInit(): void {
     this.dispatchUsers();
+    this.canvasService.$closeCanvas.pipe(takeUntil(this.$destroy)).subscribe((canvas:boolean) => {
+      if (canvas) {
+        setTimeout(() => {
+          this.dispatchUsers();                
+        }, 100);
+          this.canvasService.closeCanvas(false);
+      }
+    })
   }
 
   isAllSelected() {
@@ -83,23 +92,10 @@ export class EmployeesTableComponent implements OnInit {
   dispatchUsers() {
     this.store.dispatch(loadEmployees());
     this.store.select(getEmployeeList).subscribe((data) => {
-      data = data.filter((x, i) => i !== 0);
+      data = data.filter((_x, i) => i !== 0);
       this.employees = [...data];
       this.dataSource = new MatTableDataSource<User>(this.employees);
       this.dataSource.paginator = this.paginator;
-    });
-  }
-
-  addNewEmployees(action: string, employee = {}): void {
-    const dialogRef = this.dialog.open(AddEditEmployeeComponent, {
-      width: "30vw",
-      data: {
-        action,
-        employee,
-      },
-    });
-    dialogRef.afterClosed().subscribe((r) => {
-      if (r) this.dispatchUsers();
     });
   }
 
@@ -121,4 +117,18 @@ export class EmployeesTableComponent implements OnInit {
       }
     });
   }
+
+  addEditCanvas(
+    action: string,
+    employeeData: any = {}
+  ): void {
+    let canvasInfo:ICanvas = {
+      status:true,
+      data:employeeData,
+      action:action
+    }
+   
+    this.canvasService.updateCanvasInfo(canvasInfo);
+  }
+
 }

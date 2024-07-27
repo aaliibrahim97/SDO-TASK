@@ -112,14 +112,14 @@ import {
       const currentActive = this.buttonsRef[newIndex];
   
       // remove active style from previously active button
-      this.ren.removeClass(previouslyActive, 'g-bubble__active');
+      if(previouslyActive?.classList) this.ren?.removeClass(previouslyActive, 'g-bubble__active');
   
       // add active style to new active button
-      this.ren.addClass(currentActive, 'g-bubble__active');
+      if(this.ren && currentActive?.classList) this.ren?.addClass(currentActive, 'g-bubble__active');
   
       // hide all buttons
       this.buttonsRef.forEach((button) =>
-        this.ren.setStyle(button, 'display', 'none')
+        this.ren?.setStyle(button, 'display', 'none')
       );
   
       // show N previous buttons and X next buttons
@@ -132,18 +132,20 @@ import {
   
       // last bubble and dots
       if (this.showLastButton) {
-        this.ren.setStyle(this.dotsEndRef, 'display', endDots ? 'block' : 'none');
-        this.ren.setStyle(lastButton, 'display', endDots ? 'flex' : 'none');
+        if(this.dotsEndRef)
+        this.ren?.setStyle(this.dotsEndRef, 'display', endDots ? 'block' : 'none');
+        if(lastButton)
+        this.ren?.setStyle(lastButton, 'display', endDots ? 'flex' : 'none');
       }
   
       // first bubble and dots
       if (this.showFirstButton) {
-        this.ren.setStyle(
+        this.ren?.setStyle(
           this.dotsStartRef,
           'display',
           startDots ? 'block' : 'none'
         );
-        this.ren.setStyle(firstButton, 'display', startDots ? 'flex' : 'none');
+        if(firstButton) this.ren?.setStyle(firstButton, 'display', startDots ? 'flex' : 'none');
       }
   
       // resolve starting and ending index to show buttons
@@ -156,7 +158,7 @@ import {
       // display starting buttons
       for (let i = startingIndex; i <= endingIndex; i++) {
         const button = this.buttonsRef[i];
-        this.ren.setStyle(button, 'display', 'flex');
+        this.ren?.setStyle(button, 'display', 'flex');
       }
     }
   
@@ -179,18 +181,18 @@ import {
       );
   
       // remove 'items per page'
-      this.ren.setStyle(itemsPerPage, 'display', 'none');
+      this.ren?.setStyle(itemsPerPage, 'display', 'none');
   
       // style text of how many elements are currently displayed
-      this.ren.setStyle(howManyDisplayedEl, 'position', 'absolute');
-      this.ren.setStyle(howManyDisplayedEl, 'left', '0');
-      this.ren.setStyle(howManyDisplayedEl, 'color', '#919191');
-      this.ren.setStyle(howManyDisplayedEl, 'font-size', '14px');
+      this.ren?.setStyle(howManyDisplayedEl, 'position', 'absolute');
+      this.ren?.setStyle(howManyDisplayedEl, 'left', '0');
+      this.ren?.setStyle(howManyDisplayedEl, 'color', '#919191');
+      this.ren?.setStyle(howManyDisplayedEl, 'font-size', '14px');
   
       // check whether the user wants to remove left & right default arrow
       if (this.hideDefaultArrows) {
-        this.ren.setStyle(previousButton, 'display', 'none');
-        this.ren.setStyle(nextButtonDefault, 'display', 'none');
+        this.ren?.setStyle(previousButton, 'display', 'none');
+        this.ren?.setStyle(nextButtonDefault, 'display', 'none');
       }
     }
   
@@ -206,11 +208,11 @@ import {
       );
   
       // create a HTML element where all bubbles will be rendered
-      this.bubbleContainerRef = this.ren.createElement('div') as HTMLElement;
-      this.ren.addClass(this.bubbleContainerRef, 'g-bubble-container');
+      this.bubbleContainerRef = this.ren?.createElement('div') as HTMLElement;
+      this.ren?.addClass(this.bubbleContainerRef, 'g-bubble-container');
   
       // render element before the 'next button' is displayed
-      this.ren.insertBefore(
+      this.ren?.insertBefore(
         actionContainer,
         this.bubbleContainerRef,
         nextButtonDefault
@@ -230,10 +232,10 @@ import {
   
       // if there is only one page, do not render buttons
       if (neededButtons === 1) {
-        this.ren.setStyle(this.elementRef.nativeElement, 'display', 'none');
+        this.ren?.setStyle(this.elementRef.nativeElement, 'display', 'none');
         return;
       } else {
-        this.ren.setStyle(this.elementRef.nativeElement, 'display', 'flex');
+        this.ren?.setStyle(this.elementRef.nativeElement, 'display', 'flex');
       }
   
       // create first button
@@ -262,7 +264,7 @@ import {
      */
     private removeButtons(): void {
       this.buttonsRef.forEach((button) => {
-        this.ren.removeChild(this.bubbleContainerRef, button);
+        this.ren?.removeChild(this.bubbleContainerRef, button);
       });
   
       // Empty state array
@@ -273,24 +275,24 @@ import {
      * create button HTML element
      */
     private createButton(i: number): HTMLElement {
-      const bubbleButton = this.ren.createElement('div');
-      const text = this.ren.createText(String(i + 1));
+      const bubbleButton = this.ren?.createElement('div');
+      const text = this.ren?.createText(String(i + 1));
   
       // add class & text
-      this.ren.addClass(bubbleButton, 'g-bubble');
-      this.ren.setStyle(bubbleButton, 'margin-right', '8px');
-      this.ren.appendChild(bubbleButton, text);
+      this.ren?.addClass(bubbleButton, 'g-bubble');
+      this.ren?.setStyle(bubbleButton, 'margin-right', '8px');
+      this.ren?.appendChild(bubbleButton, text);
   
       // react on click
-      this.ren.listen(bubbleButton, 'click', () => {
+      this.ren?.listen(bubbleButton, 'click', () => {
         this.switchPage(i);
       });
   
       // render on UI
-      this.ren.appendChild(this.bubbleContainerRef, bubbleButton);
+      this.ren?.appendChild(this.bubbleContainerRef, bubbleButton);
   
       // set style to hidden by default
-      this.ren.setStyle(bubbleButton, 'display', 'none');
+      this.ren?.setStyle(bubbleButton, 'display', 'none');
   
       return bubbleButton;
     }
@@ -300,23 +302,23 @@ import {
      * many more bubbles until the last one
      */
     private createDotsElement(): HTMLElement {
-      const dotsEl = this.ren.createElement('span');
-      const dotsText = this.ren.createText('.....');
+      const dotsEl = this.ren?.createElement('span');
+      const dotsText = this.ren?.createText('.....');
   
       // add class
-      this.ren.setStyle(dotsEl, 'font-size', '18px');
-      this.ren.setStyle(dotsEl, 'margin-right', '8px');
-      this.ren.setStyle(dotsEl, 'padding-top', '6px');
-      this.ren.setStyle(dotsEl, 'color', '#919191');
+      this.ren?.setStyle(dotsEl, 'font-size', '18px');
+      this.ren?.setStyle(dotsEl, 'margin-right', '8px');
+      this.ren?.setStyle(dotsEl, 'padding-top', '6px');
+      this.ren?.setStyle(dotsEl, 'color', '#919191');
   
       // append text to element
-      this.ren.appendChild(dotsEl, dotsText);
+      this.ren?.appendChild(dotsEl, dotsText);
   
       // render dots to UI
-      this.ren.appendChild(this.bubbleContainerRef, dotsEl);
+      this.ren?.appendChild(this.bubbleContainerRef, dotsEl);
   
       // set style none by default
-      this.ren.setStyle(dotsEl, 'display', 'none');
+      this.ren?.setStyle(dotsEl, 'display', 'none');
   
       return dotsEl;
     }
@@ -327,8 +329,7 @@ import {
     private switchPage(i: number): void {
       const previousPageIndex = this.matPag.pageIndex;
       this.matPag.pageIndex = i;
-      this.matPag['_emitPageEvent'](previousPageIndex);
-  
+      !!this.matPag['_emitPageEvent'](previousPageIndex);
       this.pageIndexChangeEmitter.emit(i);
     }
   }

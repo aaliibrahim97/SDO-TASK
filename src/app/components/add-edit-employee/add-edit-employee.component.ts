@@ -24,6 +24,7 @@ import {
   styleUrl: "./add-edit-employee.component.scss",
 })
 export class AddEditEmployeeComponent implements OnInit {
+
   _employeeForm: FormGroup = new FormGroup({
     name: new FormControl("", [Validators.required]),
     email: new FormControl("", [Validators.required, Validators.email]),
@@ -71,4 +72,5 @@ export class AddEditEmployeeComponent implements OnInit {
         break;
     }
   }
+  
 }
