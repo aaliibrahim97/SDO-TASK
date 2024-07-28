@@ -77,8 +77,8 @@ export class AddEditEmployeeCanvasComponent implements OnInit, OnDestroy {
       name: '',
       email: '',
       phone: '',
-      address: ''}
-    )
+      address: ''
+    })
   }
 
   newEmployeeSubmission() {

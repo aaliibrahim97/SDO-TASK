@@ -55,7 +55,7 @@ export class EmployeesTableComponent implements OnInit {
     private store: Store,
     private dialog: MatDialog,
     private canvasService: CanvasService,
-    private router:Router
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -136,7 +136,6 @@ export class EmployeesTableComponent implements OnInit {
   }
 
   openEmployeeDetails() {
-    this.router.navigate(['employee-details']);
-    
+    this.router.navigate(["employee-details"]);
   }
 }

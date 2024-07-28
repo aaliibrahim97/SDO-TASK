@@ -26,6 +26,7 @@ export type ChartOptions = {
   stroke: ApexStroke | any;
   legend: ApexLegend | any;
   toolbar: any;
+  colors: string[] | any;
 };
 
 @Component({
@@ -49,6 +50,7 @@ export class EmployeesComparisonComponent {
           data: [76, 85, 10, 98],
         },
       ],
+      colors: ["#3c9df8", "#a1a1a1"],
       chart: {
         type: "bar",
         height: 250,
@@ -68,12 +70,6 @@ export class EmployeesComparisonComponent {
       },
       legend: {
         show: false,
-      },
-      stroke: {
-        show: true,
-        width: 10,
-        colors: ["#3c9df8", "#f4f4f4"],
-        lineCap: "round",
       },
       xaxis: {
         categories: ["(Apr/Jun)", "(Jul/Sep)", "(Oct/Dec)", "(Jan/Mar)"],

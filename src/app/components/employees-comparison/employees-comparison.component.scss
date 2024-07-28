@@ -1,78 +1,75 @@
 .card {
-    border-radius: 12px;
-    border: 1px solid #e0e0e0;
-    margin-top: 10px;
-    margin-bottom: 10px;
-      
-    .card-title {
-      font-weight: 700;
-      font-size: 15px;
-      color: #012d54;
-    }
-    ._card_title_header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
-      ._card_title_header_details {
+  .card-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #012d54;
+  }
+  ._card_title_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        ._card_title_header_details_dots {
-            ._dot_1 {
-                margin-right: 8px;
-                &::before {
-                    background: #3c9df8;
-                    content: "\A";
-                    width: 10px;
-                    height: 10px;
-                    border-radius: 50%;
-                    display: inline-block;
-                    position: relative;
-                    right: 2px;
-                }
-            }
-            ._dot_2 {
-                &::before {
-                    background: #f4f4f4;
-                    content: "\A";
-                    width: 10px;
-                    height: 10px;
-                    border-radius: 50%;
-                    display: inline-block;
-                    position: relative;
-                    right: 2px;
-                }
-            }
-        }
-      }
-      .dropdown-toggle{
-        background: #fff;
-        color: #000;
-        border: 1px solid #e0e0e0;
-      }
-    }
-    .card-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      ._card_content_percentage {
-        ._card_content_percentage_number {
-          font-size: 1.5rem;
-          font-weight: 900;
-          white-space: nowrap;
-          padding-bottom: 25px;
-
-          small {
-            font-size: 15px;
-            color: gray;
+    ._card_title_header_details {
+      ._card_title_header_details_dots {
+        ._dot_1,
+        ._dot_2 {
+          margin-right: 8px;
+          &::before {
+            content: "\A";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            right: 2px;
           }
         }
-        ._card_content_percentage_grad {
-            font-size: 0.8rem;
-            color: gray;
-            padding: 12px 0 0 5px;
-            white-space: nowrap;
+        ._dot_1 {
+          &::before {
+            background: #3c9df8;
+          }
         }
+        ._dot_2 {
+          &::before {
+            background: #a1a1a1;
+          }
+        }
+      }
+    }
+    .dropdown-toggle {
+      background: #fff;
+      color: #000;
+      border: 1px solid #e0e0e0;
+    }
+  }
+  .card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    ._card_content_percentage {
+      ._card_content_percentage_number {
+        font-size: 1.5rem;
+        font-weight: 900;
+        white-space: nowrap;
+        padding-bottom: 25px;
+
+        small {
+          font-size: 15px;
+          color: gray;
+        }
+      }
+      ._card_content_percentage_grad {
+        font-size: 0.8rem;
+        color: gray;
+        padding: 12px 0 0 5px;
+        white-space: nowrap;
       }
     }
   }
+}

@@ -45,20 +45,20 @@ export class EmployeeExpensesComponent {
     this.chartOptions = {
       series: [
         {
-          name: "",
-          data: [50, 55, 41, 50],
+          name: "bonuses",
+          data: [150, 155, 141, 510],
         },
         {
-          name: "",
-          data: [60, 32, 33, 20],
+          name: "entertainment",
+          data: [610, 312, 133, 120],
         },
         {
-          name: "",
-          data: [20, 17, 11, 40],
+          name: "claims",
+          data: [210, 117, 111, 140],
         },
         {
-          name: "",
-          data: [30, 17, 11, 42],
+          name: "salary",
+          data: [310, 117, 111, 412],
         },
       ],
       chart: {
@@ -74,12 +74,10 @@ export class EmployeeExpensesComponent {
         bar: {
           horizontal: true,
           barHeight: 8,
+          borderRadius: 5
         },
       },
-      colors: ["#f4f4f4", "#74affa", "#60d4f6", "#3c9df8"],
-      stroke: {
-        width: 5,
-      },
+      colors: ["#74affa", "#60d4f6", "#3c9df8", "#a1a1a1"],
       xaxis: {
         labels: {
           show: false,
@@ -90,7 +88,6 @@ export class EmployeeExpensesComponent {
           show: false,
         },
       },
-
       fill: {
         opacity: 1,
       },
