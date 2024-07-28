@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild } from "@angular/core";
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -11,7 +11,7 @@ import {
   ApexXAxis,
   ApexFill,
   ApexTooltip,
-  NgApexchartsModule
+  NgApexchartsModule,
 } from "ng-apexcharts";
 
 export type ChartOptions = {
@@ -25,18 +25,17 @@ export type ChartOptions = {
   tooltip: ApexTooltip | any;
   stroke: ApexStroke | any;
   legend: ApexLegend | any;
-  toolbar: any
+  toolbar: any;
 };
 
 @Component({
-  selector: 'app-employees-comparison',
+  selector: "app-employees-comparison",
   standalone: true,
   imports: [NgApexchartsModule],
-  templateUrl: './employees-comparison.component.html',
-  styleUrl: './employees-comparison.component.scss'
+  templateUrl: "./employees-comparison.component.html",
+  styleUrl: "./employees-comparison.component.scss",
 })
 export class EmployeesComparisonComponent {
-
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions!: Partial<ChartOptions>;
 
@@ -44,11 +43,10 @@ export class EmployeesComparisonComponent {
     this.chartOptions = {
       series: [
         {
-          
-          data: [44, 55, 57, 56]
+          data: [44, 55, 57, 56],
         },
         {
-          data: [76, 85, 10, 98]
+          data: [76, 85, 10, 98],
         },
       ],
       chart: {
@@ -56,41 +54,35 @@ export class EmployeesComparisonComponent {
         height: 250,
         width: 350,
         toolbar: {
-          show: false
-        }
+          show: false,
+        },
       },
       plotOptions: {
         bar: {
           horizontal: false,
           columnWidth: "55%",
-          endingShape: "rounded"
-        }
+        },
       },
       dataLabels: {
-        enabled: false
+        enabled: false,
       },
       legend: {
-        show: false
+        show: false,
       },
       stroke: {
         show: true,
         width: 10,
-        colors: ["#3c9df8", "#f4f4f4"]
+        colors: ["#3c9df8", "#f4f4f4"],
+        lineCap: "round",
       },
       xaxis: {
-        categories: [
-          "(Apr/Jun)",
-          "(Jul/Sep)",
-          "(Oct/Dec)",
-          "(Jan/Mar)",
-        ]
+        categories: ["(Apr/Jun)", "(Jul/Sep)", "(Oct/Dec)", "(Jan/Mar)"],
       },
       yaxis: {
         title: {
-          text: "Comparison"
-        }
+          text: "Comparison",
+        },
       },
-     
     };
   }
 }

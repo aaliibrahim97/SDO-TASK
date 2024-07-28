@@ -1,0 +1,91 @@
+.card {
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  .card-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #012d54;
+  }
+  ._card_title_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    ._card_title_header_details {
+      ._card_title_header_details_dots {
+        ._dot_1,
+        ._dot_2,
+        ._dot_3,
+        ._dot_4 {
+          margin-right: 18px;
+          &::before {
+            content: "\A";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            right: 2px;
+          }
+        }
+        ._dot_1 {
+          &::before {
+            background: #f4f4f4;
+          }
+        }
+        ._dot_2 {
+          &::before {
+            background: #74affa;
+          }
+        }
+        ._dot_3 {
+          &::before {
+            background: #60d4f6;
+          }
+        }
+        ._dot_4 {
+          &::before {
+            background: #3c9df8;
+          }
+        }
+      }
+    }
+  }
+  .card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    ._card_content_list {
+      ul li {
+        padding: 3px 0 0px 0;
+        position: relative;
+        top: 6px;
+      }
+
+    ._card_content_list_item {
+
+      img {
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      ._card_content_list_item_info {
+        ._card_content_list_item_info_name {
+          font-weight: 700;
+          margin: 0 2px;
+        }
+        ._card_content_list_item_info_job {
+          font-weight: 800;
+          color: #ababab;
+          margin: 0 2px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  }
+}

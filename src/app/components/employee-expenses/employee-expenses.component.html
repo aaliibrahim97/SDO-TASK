@@ -1,1 +1,62 @@
-<p>employee-expenses works!</p>
+<div class="card">
+    <div class="card-body">
+        <div class="_card_title_header d-flex justify-content-between">
+            <div class="_card_title_header_details">
+                <h5 class="card-title m-0">Expenses</h5>
+                <div class="_card_title_header_details_dots pt-2">
+                    <span class="_dot_2">Bonuses</span>
+                    <span class="_dot_3">Entertainment</span>
+                    <span class="_dot_4">Claims</span>
+                    <span class="_dot_1">Salary</span>
+                </div>
+            </div>
+        </div>
+        <div class="card-content">
+            <div class="_card_content_list">
+                <ul class="p-0">
+                    <li class="_card_content_list_item d-flex align-items-center">
+                        <img
+                            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=35&h=35&q=80">
+                        <div class="_card_content_list_item_info">
+                            <p class="_card_content_list_item_info_name">Alena Gouse</p>
+                            <p class="_card_content_list_item_info_job">UI Designer</p>
+                        </div>
+                    </li>
+                    <li class="_card_content_list_item d-flex align-items-center">
+                        <img
+                            src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=35&h=35&q=80">
+                        <div class="_card_content_list_item_info">
+                            <p class="_card_content_list_item_info_name">Avery Aod</p>
+                            <p class="_card_content_list_item_info_job">UI Designer</p>
+                        </div>
+                    </li>
+                    <li class="_card_content_list_item d-flex align-items-center">
+                        <img
+                            src="https://images.unsplash.com/photo-1505840717430-882ce147ef2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=35&h=35&q=80">
+                        <div class="_card_content_list_item_info">
+                            <p class="_card_content_list_item_info_name">John Flice</p>
+                            <p class="_card_content_list_item_info_job">UI Designer</p>
+                        </div>
+                    </li>
+                    <li class="_card_content_list_item d-flex align-items-center">
+                        <img
+                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=35&h=35&q=80">
+                        <div class="_card_content_list_item_info">
+                            <p class="_card_content_list_item_info_name">Alex Gouse</p>
+                            <p class="_card_content_list_item_info_job">UI Designer</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="_card_content_charts">
+                <div id="chart">
+                    <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                        [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions"
+                        [xaxis]="chartOptions.xaxis" [stroke]="chartOptions.stroke" [fill]="chartOptions.fill"
+                        [yaxis]="chartOptions.yaxis" [title]="chartOptions.title" [tooltip]="chartOptions.tooltip"
+                        [legend]="chartOptions.legend" [colors]="chartOptions.colors"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

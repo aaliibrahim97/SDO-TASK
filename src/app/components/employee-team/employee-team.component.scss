@@ -1,0 +1,214 @@
+.card {
+  margin-bottom: 10px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  height: auto;
+  margin-top: 1rem;
+
+  .card-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #012d54;
+  }
+
+  ._card_title_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  ._card_title_header_details {
+    width: 100%;
+
+    ._layout_container_toolbar_links {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      flex-wrap: wrap;
+
+      a {
+        margin: 20px 15px 20px 0px;
+        color: #545454;
+        font-size: 15px;
+        padding: 4px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover {
+          background-color: #f9f9f9;
+        }
+      }
+
+      ._link_active {
+        background-color: #cde8ff;
+        color: #004c87;
+        &:hover {
+          background-color: #bbdcf9;
+        }
+      }
+    }
+
+    ._card_title_header_details_dots {
+      border-top: 1px solid #e0e0e0;
+      padding-top: 35px;
+
+      ._dot_1,
+      ._dot_2,
+      ._dot_3,
+      ._dot_4 {
+        margin-right: 18px;
+        color: #9c9c9c;
+
+        &::before {
+          content: "\A";
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          display: inline-block;
+          position: relative;
+          right: 2px;
+        }
+      }
+      ._dot_1 {
+        &::before {
+          background: #009b27;
+        }
+      }
+      ._dot_2 {
+        &::before {
+          background: #1968ce;
+        }
+      }
+      ._dot_3 {
+        &::before {
+          background: #f6db60;
+        }
+      }
+      ._dot_4 {
+        &::before {
+          background: #f83c3c;
+        }
+      }
+    }
+  }
+
+  .card-content {
+    table {
+      width: 100%;
+      margin-top: 20px;
+
+      th {
+        ._mat_header_cell {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-direction: row;
+
+          p {
+            margin: 0;
+          }
+
+          i {
+            font-size: 12px;
+            color: #a8a8a8;
+            text-align: right;
+            padding-top: 5px;
+            cursor: pointer;
+            transition: 0.1s ease-in-out color;
+
+            &:hover {
+              color: #bdbbbb;
+              transition: 0.1s ease-in-out color;
+            }
+          }
+        }
+      }
+      ._card_content_list_item {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        img {
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+
+        ._card_content_list_item_info {
+          ._card_content_list_item_info_name {
+            font-weight: 700;
+            margin: 0 2px;
+          }
+          ._card_content_list_item_info_job {
+            font-weight: 800;
+            color: #ababab;
+            margin: 0 2px;
+            font-size: 12px;
+          }
+        }
+      }
+
+      ._element_score {
+        p {
+          margin: 0;
+          font-weight: 800;
+          color: #7c7c7c;
+        }
+        small {
+          color: #787878;
+        }
+      }
+
+      ._element_month {
+        font-weight: 500;
+        color: #7c7c7c;
+      }
+
+      ._element_last_month {
+        font-weight: 200;
+        color: #787878;
+      }
+
+      ._element_month,
+      ._element_last_month {
+        span {
+          content: "\A";
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          display: inline-block;
+          position: relative;
+          right: 2px;
+        }
+      }
+    }
+
+    table th:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    table th:last-child {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    table td:last-child {
+      border-left: 1px solid rgb(180, 180, 180);
+    }
+
+    ::ng-deep .mat-mdc-cell {
+      border-bottom-width: 0px !important;
+    }
+
+    ::ng-deep .mat-mdc-header-cell {
+      border-bottom-width: 0px !important;
+      background-color: #ededed !important;
+    }
+
+    .mat-mdc-header-cell tr:last-child {
+      border-radius: 8px;
+    }
+  }
+}

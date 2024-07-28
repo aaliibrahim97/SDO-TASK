@@ -1,1 +1,102 @@
-<p>employee-team works!</p>
+<div class="card">
+  <div class="card-body">
+    <div class="_card_title_header">
+      <div class="_card_title_header_details">
+        <h5 class="card-title m-0">My Team</h5>
+        <div class="_layout_container_toolbar_links">
+          <a class="_link_active">Performance</a>
+          <a>Goals</a>
+          <a>Reports</a>
+          <a>Feedbacks</a>
+        </div>
+        <div class="_card_title_header_details_dots">
+          <span class="_dot_1">Perfect Score</span>
+          <span class="_dot_2">Good Score</span>
+          <span class="_dot_3">Average Score</span>
+          <span class="_dot_4">Bad Score</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-content">
+      <table mat-table [dataSource]="dataSource" class="responsive-md responsive-sm">
+        <!-- Team Members Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>
+            <div class="_mat_header_cell">
+              <p>
+                Team Members
+              </p>
+              <i class="pi pi-arrows-v"></i>
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <div class="_card_content_list_item d-flex align-items-center">
+              <img [src]="element.avatar">
+              <div class="_card_content_list_item_info">
+                <p class="_card_content_list_item_info_name">{{element.name}}</p>
+                <p class="_card_content_list_item_info_job">{{element.job}}</p>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- Score Column -->
+        <ng-container matColumnDef="score">
+          <th mat-header-cell *matHeaderCellDef>
+            <div class="_mat_header_cell">
+              <p>
+                Score
+              </p>
+              <i class="pi pi-arrows-v"></i>
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <div class="_element_score">
+              <p>{{element.score}}</p>
+              <small class="d-block">/240</small>
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- This Month Column -->
+        <ng-container matColumnDef="thisMonth">
+          <th mat-header-cell *matHeaderCellDef>
+            <div class="_mat_header_cell">
+              <p>
+                This Month
+              </p>
+              <i class="pi pi-arrows-v"></i>
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <p class="_element_month">
+              <span [style.background]="element.dotColor1"></span>
+              {{element.thisMonth}}%
+            </p>
+          </td>
+        </ng-container>
+
+        <!-- Last Month Column -->
+        <ng-container matColumnDef="lastMonth">
+          <th mat-header-cell *matHeaderCellDef>
+            <div class="_mat_header_cell">
+              <p>
+                Last Month
+              </p>
+              <i class="pi pi-arrows-v"></i>
+            </div>
+          </th>
+          <td mat-cell *matCellDef="let element" class='has_label_on_mobile'>
+            <p class="_element_last_month">
+              <span [style.background]="element.dotColor2"></span>
+              {{element.lastMonth}}%
+            </p>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -35,7 +35,7 @@
         align-items: center;
 
         a {
-          margin: 0px 10px;
+          margin: 20px 15px 20px 0px;
           color: #545454;
           font-size: 15px;
           padding: 4px 10px;
@@ -210,20 +210,131 @@
   }
 }
 
-.example-is-mobile .example-toolbar {
+._mobile_layout_container_toolbar_items {
+  list-style-type: none;
+  background-color: rgb(255 255 255);
+  border-radius: 0 0 10px 10px;
+  border: 1px solid #f5f5f5;;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 55px;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  -webkit-box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.57);
+  -moz-box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.57);
+  box-shadow: 3px 7px 9px -4px rgba(0,0,0,0.57); 
+  
+  li {
+    padding-bottom: 10px;
+  }
+
+  ._layout_container_toolbar_links {
+    a {
+      margin: 20px 15px 20px 0px;
+      color: #545454;
+      font-size: 15px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover {
+        background-color: #f9f9f9;
+      }
+    }
+
+    ._link_active {
+      background-color: #cde8ff;
+      color: #004c87;
+      &:hover {
+        background-color: #bbdcf9;
+      }
+    }
+  }
+
+    ._toolbar_user_item {
+      .input-group {
+        border: 1px solid #eaeaea;
+        border-radius: 10px;
+        .input-group-text {
+          border-radius: 10px 0px 0px 10px;
+          border: 0px;
+          padding: 10px 15px;
+          color: #b6b6b6;
+        }
+        .form-control {
+          border-radius: 0px 10px 10px 0px;
+          background-color: #f8f9fa !important;
+          border: 0px;
+          &::placeholder {
+            color: #b6b6b6 !important;
+          }
+        }
+        .slack {
+          position: absolute;
+          right: 14px;
+          top: 2px;
+          font-size: 14px;
+          color: #656565 !important;
+  
+          i {
+            font-size: 12px;
+            color: #6f6f6f !important;
+            padding-left: 2px;
+          }
+        }
+      }
+    }
+    
+
+    ._toolbar_user_event {
+      cursor: pointer;
+
+      &::after {
+        content: "\A";
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #de0000;
+        display: inline-block;
+        position: relative;
+        bottom: 10px;
+        right: 5px;
+      }
+    }
+
+    ._toolbar_user_avatar {
+      img {
+        border-radius: 100%;
+      }
+      .pi-angle-down {
+        padding-left: 5px;
+      }
+    }
+  }
+
+  ._mobile_toggle_btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70vw;
+    position: relative;
+    top: 10px;
+  }
+
+._is_mobile .example-toolbar {
   position: fixed;
-  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
   z-index: 2;
 }
 
-.example-sidenav-container {
-  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+._sidenav_container {
   flex: 1;
 }
 
-.example-is-mobile .example-sidenav-container {
-  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
-     `<body>` to be our scrolling element for mobile layouts. */
+._is_mobile ._sidenav_container {
   flex: 1 0 auto;
 }

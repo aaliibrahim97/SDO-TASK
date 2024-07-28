@@ -52,16 +52,18 @@ mat-paginator {
   content: "Next";
 }
 
-.mat-mdc-paginator-range-label {
-  &::before {
-    content: "Showing";
-    font-weight: bold;
-    margin-right: 5px;
-  }
+@media (min-width: 768px) {
+  .mat-mdc-paginator-range-label {
+    &::before {
+      content: "Showing";
+      font-weight: bold;
+      margin-right: 5px;
+    }
 
-  &::after {
-    content: "Entires";
-    font-weight: bold;
-    margin-left: 5px;
+    &::after {
+      content: "Entires";
+      font-weight: bold;
+      margin-left: 5px;
+    }
   }
 }

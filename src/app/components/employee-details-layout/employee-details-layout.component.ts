@@ -14,8 +14,9 @@ import { MatIconModule } from "@angular/material/icon";
 })
 export class EmployeeDetailsLayoutComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
-  private _mobileQueryListener: () => void;
+  isMobileToolbarList: boolean = false;
 
+  private _mobileQueryListener: () => void;
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia("(max-width: 600px)");
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();

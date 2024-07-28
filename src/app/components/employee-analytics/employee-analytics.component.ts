@@ -71,7 +71,6 @@ export class EmployeeAnalyticsComponent {
     },
     stroke: {
         lineCap: "round",
-        
     },
     
       labels: [""]
