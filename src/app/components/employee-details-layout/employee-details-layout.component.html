@@ -1,0 +1,100 @@
+<div class="_layout_container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar class="_layout_container_toolbar">
+        <div class="_layout_app_logo">
+            <img src="assets/brand/logo.png" alt="app-logo">
+            <!-- <button mat-icon-button (click)="snav.toggle()" fxShow="true" fxShow.gt-sm><mat-icon>menu</mat-icon></button> -->
+        </div>
+            <div class="_layout_container_toolbar_items">
+                <div class="_layout_container_toolbar_links" fxShow="true" fxShow.gt-sm>
+                    <a>Dashboard</a>
+                    <a>Leaves</a>
+                    <a>Attendance</a>
+                    <a class="_link_active">Performance</a>
+                </div>
+                <div class="_layout_container_toolbar_user">
+                    <div class="_toolbar_user_item input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="pi pi-search"></i>
+                            </span>
+                          </div>
+                        <input class="form-control" type="search" id="search" name="search" placeholder="Search Anything..." />
+                        <span class="slack">f<i class="pi pi-slack"></i></span>
+                    </div>
+                    <div class="_toolbar_user_item _toolbar_user_event">
+                        <i class="pi pi-envelope"></i>
+                    </div>
+                    <div class="_toolbar_user_item _toolbar_user_event">
+                        <i class="pi pi-bell"></i>
+                    </div>
+                    <div class="_toolbar_user_item _toolbar_user_avatar"> 
+                        <img  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=30&h=30&q=80">
+                        <i class="pi pi-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+    </mat-toolbar>
+    <!-- [style.marginTop.px]="mobileQuery.matches ? 56 : 0" -->
+    <mat-sidenav-container class="example-sidenav-container" >
+        <mat-sidenav #snav [opened]="true" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+            fixedTopGap="56">
+            <mat-nav-list>
+                <div class="_list_item_group">
+                    <div class="_list_item_group_top">
+                        <a mat-list-item>
+                            <i class="pi pi-warehouse"></i>
+                            <p class="m-0">Dashboard</p>
+                        </a>
+                        <a mat-list-item>
+                            <i class="pi pi-building"></i>
+                            <p class="m-0">Org</p>
+                        </a>
+                        <a mat-list-item class="_item_active">
+                            <i class="pi pi-calendar"></i>
+                            <p class="m-0">Calender</p>
+                        </a>
+                        <a mat-list-item>
+                            <i class="pi pi-car"></i>
+                            <p class="m-0">Parkings</p>
+                        </a>
+                        <a mat-list-item>
+                            <i class="pi pi-briefcase"></i>
+                            <p class="m-0">Recruit</p>
+                        </a>
+                        <a mat-list-item>
+                            <i class="pi pi-inbox"></i>
+                            <p class="m-0">Messages</p>
+                        </a>
+                    </div>
+                    <div>
+                        <a mat-list-item>
+                            <i class="pi pi-question-circle"></i>
+                            <p class="m-0">Help</p>
+                        </a>
+                        <a mat-list-item>
+                            <i class="pi pi-cog"></i>
+                            <p class="m-0">Settings</p>
+                        </a>
+                    </div>
+                </div>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div class="_content_welcome_header">
+                <div class="_content_welcome_header_text">
+                    <h2 class="m-0">Good Afternoon, Sourov!</h2>
+                    <small>Your Performance Is Looking Good</small>
+                </div>
+                <div class="_content_welcome_header_timeline">
+                    <div class="header_timeline_text">
+                        <small>Current Time</small>
+                        <p class="m-0">26 sep 2024 10:20pm</p>
+                    </div>
+                    <i class="pi pi-clock"></i>
+                </div>
+            </div>
+            <ng-content></ng-content>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+  

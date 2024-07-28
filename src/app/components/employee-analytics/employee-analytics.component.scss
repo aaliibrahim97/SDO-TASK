@@ -1,0 +1,88 @@
+._employee_analytics_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+  .card {
+    margin-right: 10px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    
+    .card-title {
+      font-weight: 700;
+      font-size: 15px;
+      color: #787878;
+    }
+    ._card_title_header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      i {
+        font-size: 2rem;
+        position: absolute;
+        right: 1.5rem;
+        top: 2rem;
+        color: #3e9efa;  
+      }
+    }
+    .card-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 7rem;
+
+      ._card_content_percentage {
+        ._card_content_percentage_number {
+          font-size: 1.5rem;
+          font-weight: 900;
+          white-space: nowrap;
+          padding-bottom: 25px;
+
+          small {
+            font-size: 15px;
+            color: gray;
+          }
+        }
+        ._card_content_percentage_grad {
+            font-size: 0.8rem;
+            color: gray;
+            padding: 12px 0 0 5px;
+            white-space: nowrap;
+        }
+        .blue-border {
+            border-left: 2px solid #007cd5;
+        }
+        .gray-border {
+            border-left: 2px solid #bbbbbb;
+        }
+        .green-border {
+            border-left: 2px solid #00ae2e;
+        }
+        .yellow-border {
+            border-left: 2px solid #d58f00
+        }
+      }
+
+      ._card_content_charts {
+        position: relative;
+        left: 25px;
+        bottom: 10px;
+      }
+    }
+  }
+}
+
+.rotate-270 {
+  transform: rotate(270deg);
+}
+
+.rotate--270 {
+  transform: rotate(-270deg);
+}
+
+.h-6 {
+  height: 6.5rem !important;
+}

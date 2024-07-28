@@ -1,0 +1,81 @@
+<div class="_employee_analytics_row">
+    <div class="col-3 card">
+        <div class="card-body">
+            <h5 class="card-title">My Performance</h5>
+            <div class="card-content">
+                <div class="_card_content_percentage">
+                    <p class="_card_content_percentage_number">202<small>/250</small></p>
+                    <span class="_card_content_percentage_grad blue-border">Good Score</span>
+                </div>
+                <div class="_card_content_charts">
+                    <div id="chart">
+                        <apx-chart
+                          [series]="chartOptions.series"
+                          [chart]="chartOptions.chart"
+                          [plotOptions]="chartOptions.plotOptions"
+                          [labels]="chartOptions.labels"
+                          [stroke]="chartOptions.stroke"
+                          [fill]="chartOptions.fill"
+                        ></apx-chart>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-2 card">
+        <div class="card-body">
+            <div class="_card_title_header d-flex justify-content-between">
+                <h5 class="card-title m-0">Task Assigned</h5>
+                <i class="pi pi-list"></i>
+            </div>
+            <div class="card-content h-6">
+                <div class="_card_content_percentage">
+                    <p class="_card_content_percentage_number">189</p>
+                    <span class="_card_content_percentage_grad gray-border">232 average tasks per user</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-2 card">
+        <div class="card-body">
+            <div class="_card_title_header d-flex justify-content-between">
+                <h5 class="card-title m-0">Task Completion</h5>
+                <i class="pi pi-list-check"></i>
+            </div>
+            <div class="card-content h-6">
+                <div class="_card_content_percentage">
+                    <p class="_card_content_percentage_number">98.2%</p>
+                    <span class="_card_content_percentage_grad green-border">Good Score</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-2 card">
+        <div class="card-body">
+            <div class="_card_title_header d-flex justify-content-between">
+                <h5 class="card-title m-0">Attendance %</h5>
+                <i class="pi pi-download rotate--270"></i>
+            </div>
+            <div class="card-content h-6">
+                <div class="_card_content_percentage">
+                    <p class="_card_content_percentage_number">88.2%</p>
+                    <span class="_card_content_percentage_grad yellow-border">Good Score</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-2 card">
+        <div class="card-body">
+            <div class="_card_title_header d-flex justify-content-between">
+                <h5 class="card-title m-0">Leaves %</h5>
+                <i class="pi pi-download rotate-270"></i>
+            </div>
+            <div class="card-content h-6">
+                <div class="_card_content_percentage">
+                    <p class="_card_content_percentage_number">100%</p>
+                    <span class="_card_content_percentage_grad green-border">Good Score</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -62,7 +62,7 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns">
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" class="cursor-pointer" (click)="openEmployeeDetails()">
         </tr>
     </table>
     <div class="_employee_table_footer_title">

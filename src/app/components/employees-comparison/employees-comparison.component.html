@@ -1,0 +1,43 @@
+<div class="card" style="    height: 20rem;">
+    <div class="card-body">
+        <div class="_card_title_header d-flex justify-content-between">
+            <div class="_card_title_header_details">
+                <h5 class="card-title m-0">Performance Comparison</h5>
+                <div class="_card_title_header_details_dots pt-2">
+                    <span class="_dot_1">This Year</span>
+                    <span class="_dot_2">Last Year</span>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    All Members
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-content">
+            <div class="_card_content_charts">
+                <div id="chart">
+                    <apx-chart
+                      [series]="chartOptions.series"
+                      [chart]="chartOptions.chart"
+                      [dataLabels]="chartOptions.dataLabels"
+                      [plotOptions]="chartOptions.plotOptions"
+                      [yaxis]="chartOptions.yaxis"
+                      [legend]="chartOptions.legend"
+                      [fill]="chartOptions.fill"
+                      [stroke]="chartOptions.stroke"
+                      [tooltip]="chartOptions.tooltip"
+                      [xaxis]="chartOptions.xaxis"
+                    ></apx-chart>
+                  </div>
+                  
+            </div>
+        </div>
+    </div>
+</div>

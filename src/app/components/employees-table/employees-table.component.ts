@@ -16,6 +16,7 @@ import { AddEditEmployeeCanvasComponent } from "../add-edit-employee-canvas/add-
 import { CanvasService } from "../../services/canvas.service";
 import { ICanvas } from "../../interfaces/canvas";
 import { Subject, takeUntil } from "rxjs";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-employees-table",
@@ -48,20 +49,27 @@ export class EmployeesTableComponent implements OnInit {
   allowDeleteAll: boolean = false;
   selection = new SelectionModel<User>(true, []);
   @ViewChild("paginator") paginator!: MatPaginator;
-  private $destroy:Subject<any> = new Subject<boolean>();
+  private $destroy: Subject<any> = new Subject<boolean>();
 
-  constructor(private store: Store, private dialog: MatDialog, private canvasService:CanvasService) {}
+  constructor(
+    private store: Store,
+    private dialog: MatDialog,
+    private canvasService: CanvasService,
+    private router:Router
+  ) {}
 
   ngOnInit(): void {
     this.dispatchUsers();
-    this.canvasService.$closeCanvas.pipe(takeUntil(this.$destroy)).subscribe((canvas:boolean) => {
-      if (canvas) {
-        setTimeout(() => {
-          this.dispatchUsers();                
-        }, 100);
+    this.canvasService.$closeCanvas
+      .pipe(takeUntil(this.$destroy))
+      .subscribe((canvas: boolean) => {
+        if (canvas) {
+          setTimeout(() => {
+            this.dispatchUsers();
+          }, 100);
           this.canvasService.closeCanvas(false);
-      }
-    })
+        }
+      });
   }
 
   isAllSelected() {
@@ -118,17 +126,17 @@ export class EmployeesTableComponent implements OnInit {
     });
   }
 
-  addEditCanvas(
-    action: string,
-    employeeData: any = {}
-  ): void {
-    let canvasInfo:ICanvas = {
-      status:true,
-      data:employeeData,
-      action:action
-    }
-   
+  addEditCanvas(action: string, employeeData: any = {}): void {
+    let canvasInfo: ICanvas = {
+      status: true,
+      data: employeeData,
+      action: action,
+    };
     this.canvasService.updateCanvasInfo(canvasInfo);
   }
 
+  openEmployeeDetails() {
+    this.router.navigate(['employee-details']);
+    
+  }
 }
